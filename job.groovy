@@ -19,3 +19,12 @@ job('DSL-Tutorial-2-Test') {
         maven('clean test')
     }
 }
+
+pipelineJob('example') {
+    definition {
+        cps {
+            script(readFileFromWorkspace('project-a-workflow.groovy'))
+            sandbox()
+        }
+    }
+}
