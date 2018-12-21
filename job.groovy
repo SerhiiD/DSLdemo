@@ -9,3 +9,13 @@ job('DSL-Tutorial-1-Test') {
         maven('-e clean test')
     }
 }
+
+job('DSL-Tutorial-2-Test') {
+
+    triggers {
+        scm('H * * * *')
+    }
+    steps {
+        maven('clean test')
+    }
+}
